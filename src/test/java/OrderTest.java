@@ -3,13 +3,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import static org.hamcrest.CoreMatchers.containsString;
 import org.hamcrest.MatcherAssert;
-import pages.homePage;
-import pages.orderPage;
+import pages.HomePage;
+import pages.OrderPage;
+
+import java.util.Objects;
 
 @RunWith(Parameterized.class)
-public class orderTest {
+public class OrderTest {
     @Rule
-    public driverRule driverFactory = new driverRule();
+    public DriverRule driverFactory = new DriverRule();
     private final String name;
     private final String family;
     private final String data;
@@ -19,7 +21,7 @@ public class orderTest {
     private final String chosenButton;
     private final int metroPoint;
 
-    public orderTest(String chosenButton, String name, String family, String adress, int metroPoint, String number, String data, String period) {
+    public OrderTest(String chosenButton, String name, String family, String adress, int metroPoint, String number, String data, String period) {
         this.chosenButton = chosenButton;
         this.name = name;
         this.adress = adress;
@@ -40,10 +42,10 @@ public class orderTest {
 
     @Test
     public void orderTest() {
-        orderPage objOrderPage = new orderPage(driverFactory.getDriver());
-        homePage objHomePage = new homePage(driverFactory.getDriver());
+        OrderPage objOrderPage = new OrderPage(driverFactory.getDriver());
+        HomePage objHomePage = new HomePage(driverFactory.getDriver());
 
-        if (chosenButton == "Top") {
+        if (Objects.equals(chosenButton, "Top")) {
             objHomePage.clickOrderTopButton();
         } else objHomePage.clickOrderBottomButton();
 

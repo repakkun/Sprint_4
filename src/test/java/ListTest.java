@@ -4,16 +4,16 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import pages.homePage;
+import pages.HomePage;
 
 @RunWith(Parameterized.class)
-public class listTest {
+public class ListTest {
     @Rule
-    public driverRule driverFactory = new driverRule();
+    public DriverRule driverFactory = new DriverRule();
     private final int questionNumber;
     private final int answerNumber;
     private final String answerText;
-    public listTest(int questionNumber, int answerNumber, String answerText) {
+    public ListTest(int questionNumber, int answerNumber, String answerText) {
         this.questionNumber = questionNumber;
         this.answerNumber = answerNumber;
         this.answerText = answerText;
@@ -34,8 +34,8 @@ public class listTest {
     }
 
     @Test
-    public void ListTest() {
-        homePage objHomePage = new homePage(driverFactory.getDriver());
+    public void listTest() {
+        HomePage objHomePage = new HomePage(driverFactory.getDriver());
 
         objHomePage.clickList(questionNumber);
         String actualAnswer = objHomePage.listAnswer(answerNumber);

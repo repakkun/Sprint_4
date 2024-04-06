@@ -6,14 +6,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class driverRule extends ExternalResource {
+public class DriverRule extends ExternalResource {
     private WebDriver driver;
 
     @Override
     protected void before() {
         initDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
-        driver.findElement(By.xpath(".//button[@id='rcc-confirm-button']")).click();
     }
 
     @Override

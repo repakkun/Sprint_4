@@ -3,10 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class orderPage {
+public class OrderPage {
     private WebDriver driver;
 
-    public orderPage(WebDriver driver) {
+    public OrderPage(WebDriver driver) {
         this.driver = driver;
     }
 
